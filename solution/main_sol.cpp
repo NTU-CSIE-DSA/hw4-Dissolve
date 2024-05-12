@@ -55,8 +55,8 @@ pair get_act_salary(int p){
     res.second += lazy[dsu[p]].give_salary_cnt - lazy[p].give_salary_cnt_when_merge;
     return make_pair(res.first
                    + lazy[p].give_salary_sum
-                   + res.second * lazy[p].add_salary_sum
-                   - (lazy[dsu[p]].give_salary_cnt - lazy[p].give_salary_cnt_when_merge) * lazy[p].add_salary_sum_when_merge,
+                   + res.second * (lazy[p].add_salary_sum - lazy[p].add_salary_sum_when_merge),
+                //    - (lazy[dsu[p]].give_salary_cnt - lazy[p].give_salary_cnt_when_merge) * lazy[p].add_salary_sum_when_merge,
                      res.second);
 }
 
@@ -105,6 +105,10 @@ int main(){
             size[cnt] = 1;
             lazy[cnt].add_salary_sum = c;
         }
+        // for (int i=1;i<=n;++i){
+        //     printf("%lld", b[i] + get_act_salary(id[i]).first);
+        //     putchar(" \n"[i==n]);
+        // }
     }
     for (int i=1;i<=n;++i){
         printf("%lld", b[i] + get_act_salary(id[i]).first);
