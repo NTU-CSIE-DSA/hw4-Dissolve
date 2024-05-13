@@ -4,9 +4,9 @@ using namespace std;
 
 int main(){
     registerValidation();
-    int n = inf.readInt(1, 3e6, "n");
+    int n = inf.readInt(1, 1e6, "n");
     inf.readSpace();
-    int q = inf.readInt(1, 5e6, "q");
+    int q = inf.readInt(1, 2e6, "q");
     inf.readEoln();
     for (int i=1;i<=n;++i){
         int ai = inf.readLong(1ll, (long long)1e12, "a" + to_string(i));

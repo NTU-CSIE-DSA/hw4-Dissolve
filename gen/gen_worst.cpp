@@ -20,12 +20,12 @@ int main(int argc, char *argv[]){
 
         if (op == 1){
             int can1 = -1, can1i, can1j, can2 = -1, can2i, can2j;
-            for (int i=0;i<20;--i){
+            for (int i=0;i<20;++i){
                 for (int j=0;j<v[i].size();++j){
                     if (can1 == -1){
                         can1 = *(pick ? prev(v[i][j].end()) : v[i][j].begin());
                         can1i = i;
-                        can2j = j;
+                        can1j = j;
                     }
                     else{
                         can2 = *(pick ? prev(v[i][j].end()) : v[i][j].begin());
@@ -36,13 +36,14 @@ int main(int argc, char *argv[]){
                 }
                 if (can2 != -1) break;
             }
-            if (can2 == -1) can2 = can1;
+            if (can2 == -1) can2 = rnd.choice(v[can1i][can1j]);
             else if (can1i != can2i || can1j != can2j){
                 set <int> ns;
                 for (auto &t:v[can1i][can1j]) v[can2i][can2j].insert(t);
                 v[can2i+1].push_back({});
                 v[can2i+1].back().swap(v[can2i][can2j]);
                 v[can2i].erase(v[can2i].begin() + can2j);
+                v[can1i].erase(v[can1i].begin() + can1j);
             }
             cout << "1 " << can1 << ' ' << can2;
         }
@@ -53,6 +54,7 @@ int main(int argc, char *argv[]){
 
                 if (pick) cout << *prev(v[i][j].end()) << ' ' << rnd.next(1, (int)1e6);
                 else cout << *v[i][j].begin() << ' ' << rnd.next(1, (int)1e6);
+                break;
             }
         }
         else if (op == 3){
@@ -62,6 +64,7 @@ int main(int argc, char *argv[]){
 
                 if (pick) cout << *prev(v[i][j].end());
                 else cout << *v[i][j].begin();
+                break;
             }
         }
         else{
