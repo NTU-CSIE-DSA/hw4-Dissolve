@@ -20,7 +20,7 @@ int main(int argc, char *argv[]){
 
         if (op == 1){
             int can1 = -1, can2 = -1;
-            for (int i=19;i>=0;--i){
+            for (int i=0;i<20;--i){
                 for (int j=0;j<v[i].size();++j){
                     if (can1 == -1) can1 = *(pick ? prev(v[i][j].end()) : v[i][j].begin());
                     else{
