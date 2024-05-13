@@ -10,7 +10,7 @@ int main(int argc, char *argv[]){
     bool haveOp[4] = {atoi(argv[4]), atoi(argv[5]), atoi(argv[6]), atoi(argv[7])};
 
     int mergeCnt = 0;
-    vector<set<int>> v[20];
+    vector<set<int>> v[21];
     for (int i=1;i<=N;++i) v[0].push_back({i});
     cout << N << ' ' << Q << '\n';
     for (int i=1;i<=N;++i) cout << rnd.next(1ll, (ll)1e12) << " \n"[i==N];
@@ -19,18 +19,31 @@ int main(int argc, char *argv[]){
         while (!haveOp[op-1]) op = rnd.next(1, 4);
 
         if (op == 1){
-            int can1 = -1, can2 = -1;
+            int can1 = -1, can1i, can1j, can2 = -1, can2i, can2j;
             for (int i=0;i<20;--i){
                 for (int j=0;j<v[i].size();++j){
-                    if (can1 == -1) can1 = *(pick ? prev(v[i][j].end()) : v[i][j].begin());
+                    if (can1 == -1){
+                        can1 = *(pick ? prev(v[i][j].end()) : v[i][j].begin());
+                        can1i = i;
+                        can2j = j;
+                    }
                     else{
                         can2 = *(pick ? prev(v[i][j].end()) : v[i][j].begin());
+                        can2i = i;
+                        can2j = j;
                         break;
                     }
                 }
                 if (can2 != -1) break;
             }
             if (can2 == -1) can2 = can1;
+            else if (can1i != can2i || can1j != can2j){
+                set <int> ns;
+                for (auto &t:v[can1i][can1j]) v[can2i][can2j].insert(t);
+                v[can2i+1].push_back({});
+                v[can2i+1].back().swap(v[can2i][can2j]);
+                v[can2i].erase(v[can2i].begin() + can2j);
+            }
             cout << "1 " << can1 << ' ' << can2;
         }
         else if (op == 2){
