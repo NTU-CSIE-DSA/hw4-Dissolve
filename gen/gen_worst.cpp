@@ -48,7 +48,7 @@ int main(int argc, char *argv[]){
                     if (pick) cout << *(v[i][j].end()-1) << ' ' << rnd.next(1, (int)1e6);
                     else cout << *v[i][j].begin() << ' ' << rnd.next(1, (int)1e6);
                 }
-                else cout << rnd.choice(v[i][j]);
+                else cout << rnd.choice(v[i][j]) << ' ' << rnd.next(1, (int)1e6);
                 break;
             }
         }
