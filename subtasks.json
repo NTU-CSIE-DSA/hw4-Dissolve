@@ -13,28 +13,23 @@
 		},
         "s2": {
             "index": 2,
-            "score": 15,
+            "score": 20,
             "text": "13"
         },
         "s3": {
             "index": 3,
-            "score": 20,
+            "score": 25,
             "text": "123"
         },
 		"s4": {
 			"index": 4,
-			"score": 15,
+			"score": 20,
 			"text": "134"
 		},
 		"s5": {
 			"index": 5,
-			"score": 20,
+			"score": 25,
 			"text": "No other constraints"
-		},
-		"s6": {
-			"index": 6,
-			"score": 20,
-			"text": "Require path compression"
 		}
 	}
 }

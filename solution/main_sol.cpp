@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define maxn (int)3e6+10
-#define maxq (int)5e6+10
+#define maxn (int)1e6+10
+#define maxq (int)1e6+10
 typedef long long ll;
 
 int dsu[maxn+maxq], size[maxn+maxq], id[maxn];
