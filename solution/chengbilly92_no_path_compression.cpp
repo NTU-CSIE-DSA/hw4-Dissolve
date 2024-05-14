@@ -18,6 +18,7 @@ int find_set(int p) {
 
 void merge(int x, int y) {
   x = find_set(x), y = find_set(y);
+  if(x == y) return;
   if(sz[x] < sz[y]) {
     parent[x] = y;
     sz[y] += sz[x];

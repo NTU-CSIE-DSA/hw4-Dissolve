@@ -5,7 +5,7 @@
 long long b[maxn] = {};
 int sz[maxn + maxq] = {}, parent[maxn + maxq] = {}, company_id[maxn] = {};
 long long total_reward[maxn + maxq] = {}, reward[maxn + maxq] = {}, total_reward_tag[maxn + maxq] = {} , reward_tag[maxn + maxq] = {};
-int s_cnt[maxn + maxq] = {}, s_cnt_tag[maxn + maxq] = {}, s_cnt_add[maxn + maxq] = {}, s_cnt_add_tag[maxn + maxq] = {};
+int s_cnt[maxn + maxq] = {}, s_cnt_tag[maxn + maxq] = {}, s_cnt_add[maxn + maxq] = {};
 int company_num = 0;
 
 int path_compression(int x, long long *total_r, long long *r, int *cnt) {
@@ -17,7 +17,7 @@ int path_compression(int x, long long *total_r, long long *r, int *cnt) {
   }
   else {
     int ret = path_compression(parent[x], total_r, r, cnt);
-    *total_r = total_reward[x] + (*total_r) - total_reward_tag[x] + ((*cnt) - s_cnt_tag[x]) * reward[x] - reward_tag[x] * ((*cnt) - s_cnt_tag[x]);
+    *total_r = total_reward[x] + (*total_r) - total_reward_tag[x] + ((*cnt) - s_cnt_tag[x]) * (reward[x] - reward_tag[x]);
     *r = (*r) + reward[x] - reward_tag[x];
     *cnt = (*cnt) - s_cnt_tag[x] + s_cnt[x];
     parent[x] = ret;
@@ -28,7 +28,6 @@ int path_compression(int x, long long *total_r, long long *r, int *cnt) {
     total_reward_tag[x] = total_reward[ret];
     reward_tag[x] = reward[ret];
     s_cnt_tag[x] = s_cnt[ret];
-    s_cnt_add_tag[x] = s_cnt_add_tag[ret];
     return ret;
   }
 }
@@ -42,6 +41,7 @@ int find_set(int p) {
 
 void merge(int x, int y) {
   x = find_set(x), y = find_set(y);
+  if(x == y) return;
   if(sz[x] < sz[y]) {
     parent[x] = y;
     sz[y] += sz[x];
