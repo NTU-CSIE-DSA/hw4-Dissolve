@@ -1,6 +1,6 @@
 #include <stdio.h>
-#define maxn (int)3e6 + 1
-#define maxq (int)5e6
+#define maxn (int)1e6 + 1
+#define maxq (int)2e6
 
 long long b[maxn] = {};
 int sz[maxn + maxq] = {}, parent[maxn + maxq] = {}, company_id[maxn] = {};
