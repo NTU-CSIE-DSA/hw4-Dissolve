@@ -29,11 +29,6 @@ int main(){
         else if (op_i == 3){
             inf.readInt(1, n, "give salary p");
         }
-        else if (op_i == 4){
-            inf.readInt(1, n, "quit p");
-            inf.readSpace();
-            inf.readLong(1ll, (long long)1e12, "quit init salary");
-        }
         else ensure(false);
         inf.readEoln();
     }

@@ -21,11 +21,6 @@ int main(){
             inf.readSpace();
             inf.readInt(1, n, "union y");
         }
-        else if (op_i == 2){
-            inf.readInt(1, n, "add salary p");
-            inf.readSpace();
-            inf.readInt(1, 1e6, "add salary value");
-        }
         else if (op_i == 3){
             inf.readInt(1, n, "give salary p");
         }

@@ -4,9 +4,9 @@ using namespace std;
 
 int main(){
     registerValidation();
-    int n = inf.readInt(1, 1e6, "n");
+    int n = inf.readInt(1, 1000, "n");
     inf.readSpace();
-    int q = inf.readInt(1, 2e6, "q");
+    int q = inf.readInt(1, 2000, "q");
     inf.readEoln();
     for (int i=1;i<=n;++i){
         int ai = inf.readLong(1ll, (long long)1e12, "a" + to_string(i));
@@ -29,12 +29,11 @@ int main(){
         else if (op_i == 3){
             inf.readInt(1, n, "give salary p");
         }
-        else if (op_i == 4){
+        else{
             inf.readInt(1, n, "quit p");
             inf.readSpace();
             inf.readLong(1ll, (long long)1e12, "quit init salary");
         }
-        else ensure(false);
         inf.readEoln();
     }
     inf.readEof();

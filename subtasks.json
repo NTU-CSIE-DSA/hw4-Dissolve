@@ -9,22 +9,26 @@
 		"s1": {
 			"index": 1,
 			"score": 10,
-			"text": "O(NQ)"
+			"text": "O(NQ)",
+            "validators" : ["val1.cpp"]
 		},
         "s2": {
             "index": 2,
             "score": 20,
-            "text": "13"
+            "text": "13",
+            "validators" : ["val2.cpp"]
         },
         "s3": {
             "index": 3,
             "score": 25,
-            "text": "123"
+            "text": "123",
+            "validators" : ["val3.cpp"]
         },
 		"s4": {
 			"index": 4,
 			"score": 20,
-			"text": "134"
+			"text": "134",
+            "validators" : ["val4.cpp"]
 		},
 		"s5": {
 			"index": 5,
