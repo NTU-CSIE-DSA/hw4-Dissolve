@@ -48,7 +48,7 @@ $$
 Then, to retrieve the sum of payment of each employee, traverse through the ancestry until root is reached. During the traversal, other than trivially summing the paying sum, we also have to deduct the additional payment due to raising in the larger component affecting those in the smaller component after merging. Thus, within each parent-child, $c_{parent} - c_{child}'$ and $r_{parent} - r_{child}'$ are the additional payment count and raising sum after being merged into. We have to take this into consideration to correctly calculate the payment sum of each employee. As this part is really complicated, I recommend visiting the code of merging and querying part. Anyway, the payment sum of node $i$ should be 
 
 $$
-\sum_{node \in ancestry} (p_{node} + (c_{parent_{node}} - c_{node}') \times (r_i + \sum_{node2 \in [i, node]} r_{parent_{node}} - r_{node}'))
+\sum_{node \in ancestry} \left[p_{node} + \left(\left(c_{parent_{node}} - c_{node}'\right) \times \left(r_i + \sum_{node2 \in [i, node]} r_{parent_{node2}} - r_{node2}'\right)\right)\right]
 $$
 
 It is possible to calculate this value in $O(|ancestry|)$.
