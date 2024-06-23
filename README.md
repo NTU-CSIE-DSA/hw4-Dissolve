@@ -34,7 +34,7 @@ $$
 
 Finally, the employees in this company during this sequence earn $p_i$.
 
-Without merging, the problem is still quite easy and straightforward. We now apply the same technique to only record on root and visit ancestry to retrieve data. In order to do that, we again have to adjust the value in the root of the smaller component. The paying sum can simply be deducted. We can not simply deduct the raising sum though as new payings are still affected these raises. Another issue is that the raising sum of the larger component should not have affected employees in the smaller company. Thus, we introduce two additional variables: ${c'}_i$ and ${r'}_i$ which are the parent's value of $c\_{parent}$ and $r\_{parent}$ when node $i$ is merged. Thus, similar to the only paying part, we can adjust the values as 
+Without merging, the problem is still quite easy and straightforward. We now apply the same technique to only record on root and visit ancestry to retrieve data. In order to do that, we again have to adjust the value in the root of the smaller component. The paying sum can simply be deducted. We can not simply deduct the raising sum though as new payings are still affected these raises. Another issue is that the raising sum of the larger component should not have affected employees in the smaller company. Thus, we introduce two additional variables: $c_i'$ and $r_i'$ which are the parent's value of $c\_{parent}$ and $r\_{parent}$ when node $i$ is merged. Thus, similar to the only paying part, we can adjust the values as 
 
 $$
 \begin{cases}
